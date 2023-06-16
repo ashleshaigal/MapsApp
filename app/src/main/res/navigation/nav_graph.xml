@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/launchFragment2">
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.example.mapsapp.ui.login.LoginScreen"
+        tools:layout="@layout/fragment_login_screen"
+        android:label="LoginScreen" >
+        <action
+            android:id="@+id/action_loginScreen_to_mapsScreen"
+            app:destination="@id/mapsScreen"
+            app:popUpTo="@id/navgraph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapsScreen"
+        android:name="com.example.mapsapp.ui.home.MapsScreen"
+        tools:layout="@layout/fragment_maps_screen"
+        android:label="MapsScreen" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_mapsScreen_to_loginScreen"
+            app:destination="@id/loginScreen"
+            app:popUpTo="@id/navgraph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/launchFragment2"
+        android:name="com.example.mapsapp.ui.launch.LaunchFragment"
+        android:label="fragment_launch"
+        tools:layout="@layout/fragment_launch" >
+        <action
+            android:id="@+id/action_launchFragment2_to_loginScreen"
+            app:destination="@id/loginScreen"
+            app:popUpTo="@id/navgraph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_launchFragment2_to_mapsScreen"
+            app:destination="@id/mapsScreen"
+            app:popUpTo="@id/navgraph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
